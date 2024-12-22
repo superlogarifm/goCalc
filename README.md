@@ -42,11 +42,11 @@ curl -X POST http://localhost:8080/api/v1/calculate -H "Content-Type:application
 ```
 {"error": "expression is not valid"}
 ```
-<<<<<<< HEAD
-1 - Поддерживаются выражения со знаками +, -, * (умножить), / (деление)
-=======
+
 Если HTTP-метод не POST, то вернется ошибка со статусом 405:
 ```{"error": "method not allowed", "status": 405}```
 
 
 1 - Поддерживаются выражения со знаками +, -, * (умножить), / (деление)
+
+
