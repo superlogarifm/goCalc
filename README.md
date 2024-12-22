@@ -21,7 +21,7 @@ curl -X POST http://localhost:8080/api/v1/calculate -H "Content-Type:application
 ```
 3. *Возможные ошибки*
 
-При отправке запроса с неподдерживающимся знаком (например, %):
+При отправке запроса с неподдерживающимся¹ знаком (например, %) или другими символами:
 ```
 curl -X POST http://localhost:8080/api/v1/calculate -H "Content-Type:application/json" -d "{\"expression\":\"1%1\"}"
 ```
@@ -30,3 +30,16 @@ curl -X POST http://localhost:8080/api/v1/calculate -H "Content-Type:application
 {"error": "incorrect input"}
 ```
 
+При делении на ноль вернется
+```
+{"error": "division by zero"}
+```
+При отправке запроса с ошибками в синтаксисе
+```
+curl -X POST http://localhost:8080/api/v1/calculate -H "Content-Type:application/json" -d "{\"expression\":\"1*(1++\"}"
+```
+Вернется ошибка:
+```
+{"error": "expression is not valid"}
+```
+1 - Поддерживаются выражения со знаками +, -, * (умножить), / (деление)
