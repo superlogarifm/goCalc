@@ -40,6 +40,10 @@ type Request struct {
 func CalculateHandler(w http.ResponseWriter, r *http.Request) {
 	request := Request{}
 	w.Header().Set("Content-Type", "application/json")
+	if r.Method != "POST" {
+		fmt.Fprintf(w, `{"error": "method not allowed", "status": %d}`, http.StatusMethodNotAllowed)
+		return
+	}
 	decoder := json.NewDecoder(r.Body)
 	err := decoder.Decode(&request)
 	if err != nil {
