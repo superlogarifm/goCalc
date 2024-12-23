@@ -3,7 +3,7 @@
 
 Чтобы установить сервер, введите в командой строке 
 ```
-git clone https://github.com/superlogarifm/goCalc.git && cd goCalc && go run cmd/calc_service/main.go
+git clone https://github.com/superlogarifm/goCalc.git && cd goCalc
 ```
 Сервер запустится и будет готов принимать запросы!
 ## 1. *Запуск*
